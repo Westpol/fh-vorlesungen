@@ -1,0 +1,14 @@
+\babel@toc {german}{}\relax 
+\babel@toc {ngerman}{}\relax 
+\contentsline {section}{\numberline {1}Allgemeiner Aufbau}{1}{section.1}%
+\contentsline {section}{\numberline {2}Darstellung}{1}{section.2}%
+\contentsline {section}{\numberline {3}Abschnitte}{2}{section.3}%
+\contentsline {section}{\numberline {4}Abstände}{2}{section.4}%
+\contentsline {section}{\numberline {5}Aufzählungen}{2}{section.5}%
+\contentsline {section}{\numberline {6}Tabellen}{3}{section.6}%
+\contentsline {section}{\numberline {7}Mathematische Notation}{3}{section.7}%
+\contentsline {section}{\numberline {8}Programmcode}{4}{section.8}%
+\contentsline {section}{\numberline {9}Bilder und Graphiken}{5}{section.9}%
+\contentsline {section}{\numberline {10}Verweise}{6}{section.10}%
+\contentsline {section}{\numberline {11}Index}{6}{section.11}%
+\providecommand \tocbasic@end@toc@file {}\tocbasic@end@toc@file 

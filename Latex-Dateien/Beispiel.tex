@@ -1,0 +1,301 @@
+\documentclass[11pt,a4paper]{scrartcl}
+
+	\input{preamble.tex}
+	
+	\selectlanguage{german}
+	
+\begin{document}
+
+\title{Ein Latexdokument}
+\maketitle
+
+\abstract{Hier sind einige nützliche Themen zum Erstellen eines Latexdokuments zusammengetragen. Das Ziel ist es nicht zu sehr ins Detail zu gehen, sondern einen möglichst schnellen Zugang zu den wichtigsten Komponenten beim Erstellen eines Latexdokuments zu ermöglichen. So wird manchmal der nötige Befehl angegeben, aber häufig auch nur auf die Darstellung gesetzt. Im letzten Fall können die dafür notwendigen Befehle einfach aus der tex-Datei kopiert und gegebenenfalls angepasst werden.}
+
+\tableofcontents
+
+\section{Allgemeiner Aufbau}
+Speichere folgende Grundstruktur in einer Datei <name>.tex:\\[2mm]
+\hspace*{0cm}\hfill
+\begin{minipage}[l]{.8\linewidth}
+\begin{code}
+\documentclass[11pt,a4paper]{scrartcl}
+
+	\input{preamble.tex}
+	
+	\selectlanguage{german}
+	
+\begin{document}
+Hier steht der Inhalt.
+\end{document}
+\end{code}
+\end{minipage}
+\hfill\\[2mm]
+Oberhalb von \textbackslash begin\{document\} können Pakete geladen werden, die neue Befehle ermöglichen oder Symbole bzw. Umgebungen bereitstellen, und eigene Befehle bzw. Umgebungen definiert werden. Zudem können dort zum Beispiel Papierformat, Schriftgröße, Sprache, Kopfzeile und Fußzeile festgelegt werden. Einige nützliche Vorbereitungen wurden bereits getroffen und ausgelagert. Sie werden durch \textbackslash input\{preamble.tex\} geladen.\\
+Unterhalb von \textbackslash begin\{document\} findet die Eingabe des eigentlichen Inhalts statt. Wird das Dokument wie oben kompiliert, wird ein pdf erzeugt, das lediglich den Satz \emph{Hier steht der Inhalt.} enthält.\\
+Mit \textbackslash title\{<Titel>\} kann die Überschrift festgelegt werden und durch die Optionen \textbackslash author\{<Name>\} bzw. \textbackslash date\{<Datum\} erweitert werden. \textbackslash maketitle zeigt dies dann im Dokument an. \\
+Mit Hilfe von \textbackslash abstract\{<Text>\} kann man mit einer kurzen Zusammenfassung starten.
+
+\section{Darstellung}
+\text{Normaler}, \textbf{fetter}, \textit{kursiver}, \underline{unterstrichener}, \emph{hervorgehobener} Text \\
+\textsc{kleine Großbuchstaben}, \textsl{schräger Text}, \texttt{Monospace} \\
+{\tiny kleinererer} {\scriptsize kleinerer} {\footnotesize kleiner} {\small klein} {\normalsize normal} {\large groß} {\Large größer} {\LARGE größerer} {\huge größerer} {\Huge größerer} \\
+Fußnote\footnote{Dies ist eine Fußnote.}
+
+\begin{flushleft}
+Der Text steht links.
+\end{flushleft}
+\begin{center}
+Der Text steht mittig.
+\end{center}
+\begin{flushright}
+Der Text steht rechts.
+\end{flushright}
+
+\section{Abschnitte}\label{sec:abschnitte}
+Es gibt folgende Möglichkeiten für Abschnitte:
+\begin{center}
+\textbackslash section, \textbackslash subsection, \textbackslash subsubsection, \textbackslash paragraph, \textbackslash subparagraph
+\end{center}
+Setzt man vor die öffnende geschweifte Klammer ein *, dann bekommt man einen unnummerierten Abschnitt. Mit dem Befehl
+\begin{center}
+\textbackslash addcontentsline\{toc\}\{section\}\{Titel\}
+\end{center}
+kann man solch einen dem Inhaltsverzeichnis hinzufügen. Nummerierte werden automatisch hinzugefügt. Der Befehl \textbackslash tableofcontents zeigt das Inhaltsverzeichnis an.\\
+Ein Zeilenumbruch im tex-Dokument dient der besseren Lesbarkeit und erzeugt keinen Zeilenumbruch im pdf-Dokument. Eine Leerzeile führt zu einem Zeilenumbruch. Alternativ kann auch \textbackslash\textbackslash oder \textbackslash newline verwendet werden.
+
+\section{Abstände}
+Ein ggf. vorliegender Einzug am Absatzanfang kann durch \textbackslash noindent vermieden werden. \textbackslash hspace\{2cm\} erzeugt 2cm horizontalen Platz und \textbackslash vspace\{3cm\} analog vertikalen Platz. Ein * vor der geschweiften Klammer erstellt die Lücke auch vor dem ersten Zeichen. \textbackslash hfill füllt die Zeile und \textbackslash vfill die Seite auf. \textbackslash\textbackslash[2mm] bricht die Zeile und die nächste beginnt mit einem Abstand von 2mm. Mit \textbackslash newpage erzwingt man eine neue Seite. \\[2mm]
+\textbackslash , =  kleiner \, Abstand \\
+\textbackslash quad  = großer \quad Abstand\\
+\textbackslash qquad = sehr großer \qquad Abstand\\[2mm]
+Möchte man zwei aufeinander folgende Begriffe, Wörter oder Zeichen beisammen halten, nutze $\sim$. Da Latex eigenständig den Text setzt und entscheidet wo ein Zeilenumbruch am besten ist, könnte es sein, dass z.B. bei dem Textausschnitt \textsl{Abbildung~4} die 4 in eine neue Zeile rutscht. Dies stört den Lesefluss. Um die 4 neben dem Wort \textsl{Abbildung} zu halten, nutze \textsl{Abbildung$\sim$4}.
+
+\section{Aufzählungen}
+\begin{description}
+\item[Thema] Hier ist Platz für den Inhalt.
+\item[neuer Punkt] Hier steht was. Hier steht sogar noch viel mehr. Viel viel mehr. Und noch mehr. Viel viel mehr.
+\end{description}
+Auflistungen und Aufzählungen:\\
+\begin{tabular}{c|c}
+\begin{minipage}[t]{.45\textwidth}
+\vspace{0pt}
+\begin{itemize}
+\item Itemize und Einrückungen
+	\begin{itemize}
+	\item Stufe 2
+	\item $\ldots$
+		\begin{itemize}
+		\item Stufe 3
+			\begin{itemize}
+			\item Stufe 4
+			\end{itemize}
+		\end{itemize}
+	\end{itemize}
+\item[$\circ$] personalisiertes Symbol
+\end{itemize}
+\end{minipage}&\begin{minipage}[t]{.45\textwidth}
+\begin{enumerate}
+\item Enumerate und Einrückungen
+	\begin{enumerate}
+	\item Stufe 2
+		\begin{enumerate}
+		\item Stufe 3
+			\begin{enumerate}
+			\item Stufe 4
+			\item[$\rightarrow$] pers. Symbol
+			\end{enumerate}
+	\end{enumerate}
+\end{enumerate}
+\end{enumerate}
+\end{minipage}
+\end{tabular}\\[2mm]
+Optionen: \textbackslash begin\{enumerate\}[label=(\textbackslash arabic*, \textbackslash Roman*,\textbackslash roman*, \textbackslash Alph*, \textbackslash alph*)]
+
+\section{Tabellen}
+\begin{tabular}{l  || c | r |p{1cm}}
+1. Spalte & 2. Spalte & 3. Spalte &   \\ \hline\hline
+links & mittig & rechts & 1cm \\ \hline
+1. Zelle der 3. Zeile & 2. Zelle der 3. Zeile & 3. Zelle der 3. Zeile & enge Spalte \\
+\hline
+\multicolumn{2}{c|}{zwei Zellen als eine} & \multirow{2}{*}{zwei Zellen als eine} & \\
+\cline{1-2}\cline{4-4}
+links & \multicolumn{1}{l|}{links} &&
+\end{tabular}
+
+\section{Mathematische Notation}
+Mengen: $\nats, \ints, \rats, \reals, \cplx, \emptyset, \cap, \cup, \in, \notin$ \\
+Mengendefinition: $\{ x \in \nats \mid x>2 \wedge x^2 \geq 7 \vee x<-2\}$ \\
+Relationen: $<, \leq, =, \geq, >, \neq, \subset, \subseteq, \supseteq, \supset$ \\
+Funktion: $f: \nats \rightarrow \reals,
+x \mapsto \begin{cases}
+\sqrt{2} \cdot x & \text{, falls } x \mod 2 = 0 \\
+\frac{x}{2} & \text{, falls } x \mod 2 = 1
+\end{cases}$\\
+mehr Funktionen: $\sin(x), \cos(x), \tan(x), \cot(x), \exp(x), a^x, x^b, \sqrt[c]{x}$ \\
+Summen und Produkte: $\sum_{k=1}^\infty k^{-1}, \prod_{i=1}^n \binom{n}{i} a_i$ \\
+Summen und Produkte in Displaymode:
+\[
+\sum_{k=1}^\infty k^{-1}, \prod_{i=1}^n \binom{n}{i} a_i
+\]
+Matrix: $\begin{pmatrix}
+1 & 2 & 3 \\
+4 & 5 & 6
+\end{pmatrix},
+\left( \begin{array}{cc|c}
+    a_1 & b_1 & c_1 \\
+    a_2 & b_2 & c_2
+\end{array} \right)$ \\
+Gleichung:
+\begin{equation}
+2x  = x^2 + 3
+\end{equation}
+Gleichungssystem:
+\begin{align}
+2x &=  2y -1 \\
+-x+5 &= 7y \label{eqn:dritteGleichung}
+\end{align}
+Differential- und Integralrechnung: $\frac{\d f}{\d x}(x), \int_a^b f(x) \d x$ \\
+Differential- und Integralrechnung in Displaymode:
+\[
+\frac{\d f}{\d x}(x), \int_a^b f(x) \d x
+\]
+Markierungen: $\dot{x}, \bar{x}, \hat{x}, \tilde{x}$ \\
+Symbole: $\varepsilon, \vartheta, \varrho, \varphi, \nabla, \partial, \ell, \Re, \Im,\forall, \exists, \neg$ \\
+Pfeile: $\rightarrow, \leftarrow, \Rightarrow, \Leftarrow, \leftrightarrow, \Leftrightarrow, \mapsto, \longleftarrow, \longrightarrow, \longleftrightarrow, \longmapsto, \uparrow, \downarrow, \updownarrow$ \\
+Punkte: $\ldots, \cdots,\ddots$ und $\dotfill $ \\
+griech. Alphabet: $\alpha, \beta, \gamma, \delta, \epsilon, \zeta, \eta, \theta, \iota, \kappa, \lambda, \mu, \nu, \xi, o, \pi, \rho, \sigma, \tau, \upsilon, \phi, \chi, \psi, \omega$ \\
+Griech. Alphabet: $A, B, \Gamma, \Delta, E, Z, H, \Theta, I, K, \Lambda, M, N, \Xi, O, \Pi, P, \Sigma, T, \Upsilon, \Phi, X, \Psi, \Omega$ \\
+mathcal: $\mathcal{A,B,C,D,E,F,G,H,I,J,K,L,M,N,O,P,Q,R,S,T,U,V,W,X,Y,Z}$ \\
+
+\begin{definition}
+Dies ist eine Definition.
+\end{definition}
+
+\begin{thm}
+Dies ist ein Theorem.
+\end{thm}
+
+\begin{satz}
+Dies ist ein Satz.
+\end{satz}
+
+\begin{lem}
+Dies ist ein Lemma.
+\end{lem}
+
+\begin{kor}
+Dies ist ein Korollar.
+\end{kor}
+
+\begin{beob}
+Dies ist eine Beobachtung.
+\end{beob}
+
+\begin{eig}
+Dies ist eine Eigenschaft.
+\end{eig}
+
+\begin{proof}
+Hier kann eine Aussage bewiesen werden.
+\end{proof}
+
+\section{Programmcode}
+Die Zeilen des folgenden Programms befinden sich im Tex-Dokument.
+\begin{code}[numbers=right,title=\textbf{\large\color{black}HelloWorld.java}]
+/*
+Kommentar: Dies ist ein Beispielprogramm
+*/
+
+%grau bis zum Zeilenende 
+%%grauer Bereich%% innerhalb der festgelegten Zeichen
+
+public class HelloWorld {
+    public static void main(String[] args) {
+    	// Kommentar
+    	for( int i=1; i<=3; i++){
+	        System.out.println("Hello World!");
+        }
+    }
+}
+\end{code}
+
+\noindent
+Das folgende Programm wurde aus einer java-Datei geladen.
+\lstinputlisting[numbers=left]{FromFile.java}
+
+\section{Bilder und Graphiken}
+Um ein Bild einzufügen, nutze
+\begin{center}
+\textbackslash includegraphics[scale=0.8]\{<name>.png\}
+\end{center}
+Eine Abbildung wird von Latex an eine geeignete Position gesetzt. Sie muss also nicht direkt beim Befehl liegen. Außerdem werden Abbildungen standardmäßig oben an eine Seite gesetzt. Die hier erzeugte Abbildung heißt Abbildung~1.
+\begin{figure}
+\begin{center}
+\begin{tikzpicture}[scale=1.0]
+\draw[very thick,fill=mygreen!10] (-2,0.2) -- (-2.5,3) -- (2,4);
+\draw[dotted] (4,1) -- (6,2) -- (7,1) -- (4,1);
+\draw[fill=black!20] (0,0) circle (1cm);
+\draw[draw=myblue,dashed] (1,1) rectangle (2,3);
+\node at (7,4) (a) {Text};
+\node[circle,draw=black] at (5,3.5) (a) {a};
+\node[rectangle,draw=black] at (7,2) (b) {b};
+\draw (a) --node[pos=0.5,above,xshift=4mm] {Label} (b);
+\begin{scope}[xshift=1cm,yshift=-3cm]
+% leicht veränderte Kopie, die verschoben wird
+\node[circle,draw=black, fill=blue!40] at (5,3.5) (a) {a};
+\node[rectangle,draw=black, dashed] at (7,2) (b) {b};
+\draw (a) --node[pos=0.75,above,xshift=4mm] {Label} (b);
+\end{scope}
+\end{tikzpicture}
+\caption{Dies ist die Abbildungsbeschreibung.}
+\end{center}
+\end{figure}
+
+\noindent
+Dies ist ein Plot von Punkten:
+\begin{center}
+\begin{tikzpicture}
+\begin{axis}[
+    axis lines=middle,
+    xlabel=$x$,
+    ylabel=$f(x)$,
+    domain=-2:2,
+    samples=10,
+    width=8cm,
+    height=6cm,
+  ]
+    \addplot {x^2};
+  \end{axis}
+\end{tikzpicture}
+\end{center}
+Es folgen ein paar Funktionen
+\begin{center}
+\begin{tikzpicture}[domain=0:4]
+  \draw[very thin,color=gray] (-0.1,-1.1) grid (3.9,3.9);
+
+  \draw[->] (-0.2,0) -- (4.2,0) node[right] {$x$};
+  \draw[->] (0,-1.2) -- (0,4.2) node[above] {$f(x)$};
+
+  \draw[color=red]    plot (\x,\x)             node[right] {$f(x) =x$};
+  % \x r means to convert '\x' from degrees to _r_adians:
+  \draw[color=blue]   plot (\x,{sin(\x r)})    node[right] {$f(x) = \sin x$};
+  \draw[color=orange] plot (\x,{0.05*exp(\x)}) node[right] {$f(x) = \frac{1}{20} \mathrm e^x$};
+\end{tikzpicture}
+\end{center}
+\noindent
+und Kurven
+\begin{center}
+\tikz \draw[scale=0.5,domain=-3.141:3.141,smooth,variable=\t]
+  plot ({\t*sin(\t r)},{\t*cos(\t r)});
+\hspace{1cm}
+\tikz \draw[domain=0:360,smooth,variable=\t]
+  plot ({sin(\t)},\t/360,{cos(\t)});
+\end{center}
+
+\section{Verweise}
+Es folgen zwei Links zu Internetseiten \url{https://www.google.de} und \href{https://www.youtube.com/watch?v=dQw4w9WgXcQ}{google.de}. Dies ist eine fiktive Mailadresse \href{mailto:adresse@irgendwas.com}{name@irgendwas.com}.\\
+Für interne Links setze eine Markierung mit \textbackslash label\{<name>\} und verweise auf die Stelle mit \textbackslash ref\{<name>\} und \textbackslash eqref\{<name>\} bei Gleichungen mit Klammern. So ist dies eine Verweis auf Sektion~\ref{sec:abschnitte}. Dieser Abschnitt beginnt in diesem Dokument auf Seite~ \pageref{sec:abschnitte}. Abschließend verweisen wir noch auf \eqref{eqn:dritteGleichung} die zweite Gleichung des obigen Gleichungssystems.
+
+\section{Index}
+Nutze \textbackslash usepackage\{imakeidx\} sowie \textbackslash makeindex in der Preamble. Um ein Wort in den Index aufzunehmen, wird der Befehl \textbackslash index\{<Begriff>\} verwendet. Alternativ kann für eine hierarchische Anordnung \textbackslash\{Oberkategorie!Begriffe\} oder \textbackslash index\{Oberkategorie!Unterkategorie!Begriff\} genutzt werden. Im Dokument dient \textbackslash printindex zum Anzeigen des Index.
+\end{document}
