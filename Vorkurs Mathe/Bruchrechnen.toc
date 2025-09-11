@@ -8,5 +8,9 @@
 \contentsline {subsection}{\numberline {2.4}Brüche multiplizieren / dividieren}{2}{subsection.2.4}%
 \contentsline {subsection}{\numberline {2.5}Brüche und Exponenten}{2}{subsection.2.5}%
 \contentsline {subsection}{\numberline {2.6}Vorgehensweisen beim Kürzen}{2}{subsection.2.6}%
-\contentsline {section}{\numberline {3}Exponenten}{3}{section.3}%
-\contentsline {subsection}{\numberline {3.1}Exponenten multiplizieren}{3}{subsection.3.1}%
+\contentsline {section}{\numberline {3}Potenzen}{3}{section.3}%
+\contentsline {subsection}{\numberline {3.1}Potenzen multiplizieren}{3}{subsection.3.1}%
+\contentsline {subsection}{\numberline {3.2}Potenzen in Brüchen}{3}{subsection.3.2}%
+\contentsline {section}{\numberline {4}Induktionsbeweise}{3}{section.4}%
+\contentsline {section}{\numberline {5}Wichtige Regeln}{3}{section.5}%
+\contentsline {subsection}{\numberline {5.1}Binomische Formeln}{3}{subsection.5.1}%
