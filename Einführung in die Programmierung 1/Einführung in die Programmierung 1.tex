@@ -1,0 +1,101 @@
+\documentclass[11pt, a4paper]{article}
+
+	\input{../preamble.tex}
+	
+	\selectlanguage{german}
+	
+\begin{document}
+
+\title{Einführung in die Programmierung}
+\maketitle
+
+\thispagestyle{empty}
+
+\abstract{Vorl. Frau Prof. Dr. Judith Jakob}
+
+\newpage
+
+\tableofcontents
+
+\newpage
+
+\section{Tipps}
+
+\subsection{Für Klausuren lernen}
+\begin{enumerate}
+\item Vorlesung besuchen
+\item VL zuhause durchgehen bis alles verstanden wurde (Nacharbeiten)
+\item Übung zuhause vorbereiten
+\item Übung nur fürs abgleichen der Lösungen
+\item Praktikum unvirbereitet rein
+\item Immer bis zum Ende
+\item Autocompletion deaktivieren
+\end{enumerate}
+
+\subsection{Klausurphase}
+Anki nutzen\\Spicker\\Spicker während dem Üben schreiben\\Karteikarten erstellen\\
+\\Lernmethode: Vorlesung angucken -> Übung lösen + Spicker erstellen\\Selber kontrollieren\\
+\\Probenklausur: Papier + Timer (So realistisch wie möglich)\\
+\\So viele Probeklausuren wie möglich machen
+
+\subsection{Weiteres}
+Bonuspunktetests definitiv machen (Kann Klausur um eine ganze Note verbessern)\\
+\\100 Stunden programmieren für Klausur\\
+\\UML Diagramme einfach auswendig lernen\\99 prozent Schema f\\
+\\10 prozent Wissensfragen\\90 prozent Algorithmen aus Übung\\Selten Probleme lösen
+
+\subsection{KI}
+Keine Lösungen generieren\\Vorlesungen zusammen fassen lassen
+
+\subsection{Modulmenge}
+Anstatt 6 Module eventuell 5 Module nehmen und die richtig machen
+
+\section{Organisatorisches}
+\subsection{Bonuspunktetests}
+Test 1: 25.11. bis 28.11. in den ÜPP zu den Themen der Vorlesung 1 bis 6
+Test 1: 20.01. bis 23.01. in den ÜPP zu den Themen der Vorlesung 6 bis 12
+\subsection{Projektwoche}
+Projektwoche nur bestanden / nicht bestanden\\\\Anmeldefrist 03.11.-15.11.\\Januar: 26.01.2026 - 30.01.2026
+\section{Vorlesung 1}
+\subsection{Definitionen}
+Info-matik -> Zusammengesetzt aus Informationen und Automatismus\\
+\subsubsection{Binary bla bla}
+Computer arbeiten in multiplen von Bytes (8, 16, 32, 64...)\\Kleinste addressierbare Einheit ist ein Byte\\Register sind "Unwichtig" da wir mit abstrakten Programmiersprachen arbeiten werden
+\subsection{Informationen und Daten}
+Informationen werden repräsentiert als Daten\\Daten werden interpretiert um Informationen zu bekommen
+\subsection{Zahlensysteme}
+Alle genutzten Systeme sind Stellenwertsysteme, also sind die Positionen der einzelnen Zahlen wichtig\\
+\[
+	\sum_{k=0}^{N}(b_{k} \cdot 10^{k}), b_{k} \in \mathbb{N} \{0,..., N-1\}
+\]
+Wobei $k$ der Index ist und $b_{k}$ die Zahl an dem jeweiligen Index ist\\\\Man nehme $1A7$\\
+\[
+	\sum_{k=0}^{2}
+\]
+
+\subsection{Umwandlung von Dezimal ganzzahlen in Binär}
+Modulorechnen
+Beispiel n = 43:\\
+\[43/2 = 21 R1\]
+\[21/2 = 10 R1\]
+\[10/2 = 5 R0\]
+\[5/2 = 2 R1\]
+\[2/2 = 1 R0\]
+\[1/2 = 0 R1\]
+Bei 0 stoppen, dann von 0 nach oben Reste aufschereiben
+\[(43)_{10} = (101011)_{2}\]
+
+\subsection{Umwandlung von Dezimal kommazahlen in Binär}
+0,1 zu Binär:\\
+Die Kommazahl mal zwei nehmen und sobald 1, da steht wird der Rest genommen und mit 0, weiter gemacht
+\[0,1 \cdot 2 = 0,2\]
+\[0,2 \cdot 2 = 0.4\]
+\[0,4 \cdot 2 = 0,8\]
+\[0,8 \cdot 2 = 1,6\]
+\[0,6 \cdot 2 = 1,2\]
+\[0,2 \cdot 2 = 0,4\]
+\[0,4 \cdot 2 = 0,8\]
+
+\[(0,1)_{10} = (0,00011\overline{0011})_{2}\]
+
+\end{document}
