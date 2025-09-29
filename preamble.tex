@@ -3,153 +3,132 @@
 %	1. Allgemeine Einstellungen
 %	2. Nützliche Pakete
 %	3. Neue Befehle
-%	4. Gestaltung des Blattes
+%	4. Neue Umgebungen / Gestaltung
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %	A L L G E M E I N E  E I N S T E L L U N G E N
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 % Spracheinstellungen und Kodierung
-	\usepackage[ngerman]{babel}	% richtige Sprach- und Silbentrennung
-	\usepackage[utf8]{inputenc}	% Eingabecodierung der Quelldatei
-	\usepackage[T1]{fontenc}	% Zeichenkodierung der verwendeten Schriftarten
-	
+\usepackage[utf8]{inputenc}	% Eingabecodierung der Quelldatei
+\usepackage[T1]{fontenc}	% Zeichenkodierung der verwendeten Schriftarten
+\usepackage[ngerman]{babel}	% richtige Sprach- und Silbentrennung
+
 % Seitenlayout
-	\usepackage[inner=2.5cm,outer=2.5cm,top=2cm,bottom=2cm]{geometry}
+\usepackage[inner=2.5cm,outer=2.5cm,top=2cm,bottom=2cm]{geometry}
+
+% Mikrotypographie für schöneres Schriftbild
+\usepackage{microtype}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %	N Ü T Z L I C H E  P A K E T E
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 % Mathekram
-	\usepackage{amsmath}	% Umgebungen und Funktionen für Gleichungsdarstellung
-	\usepackage{amsthm}		% mathematische Umgebungen, wie Theorem, Sätze, Korollare,
-	\usepackage{amsfonts}	% mathematische Schriftarten, z.B. für Integer oder Reals
-	\usepackage{amssymb}	% weitere mathematische Symbole
-	
+\usepackage{amsmath, amsthm, amsfonts, amssymb}
+
 % Tikz
-	\usepackage{tikz}
-	\usetikzlibrary{
-		arrows,
-		arrows.meta,
-		automata,
-		calc,
-		decorations.pathmorphing,
-		fadings,
-		fit,
-		positioning,
-		shapes
-	}
-	\usepackage{pgfplots}
+\usepackage{tikz}
+\usetikzlibrary{
+	arrows,
+	arrows.meta,
+	automata,
+	calc,
+	decorations.pathmorphing,
+	fadings,
+	fit,
+	positioning,
+	shapes
+}
+\usepackage{pgfplots}
 
 % Verweise
-	\usepackage{nameref}
+\usepackage{nameref}
 
 % Links
-	\usepackage{hyperref}	% ermöglicht interne und externe Links
-	\hypersetup{%
-		colorlinks=true,
-		%frenchlinks=true,
-		linkcolor={black},
-		%linkbordercolor = white,
-	    citecolor={black},
-	    urlcolor={myblue},
-	    hyperindex=true
-	}
+\usepackage{hyperref}
+\hypersetup{
+	colorlinks=true,
+	linkcolor={black},
+	citecolor={black},
+	urlcolor={myblue},
+	hyperindex=true
+}
 
 % Farben
-	\usepackage{xcolor}		% Verwaltung von Farben
-	
+\usepackage{xcolor}
+
 % Aufzählungen
-	\usepackage{enumitem}
-	
+\usepackage{enumitem}
+
 % Tabellen
-	\usepackage{array}
-	\usepackage{multirow}
-	
+\usepackage{array, multirow}
+
 % Bedingte Anweisungen und Logik
-	\usepackage{ifthen}
-	\usepackage{pgffor}		% Schleifen
-	
+\usepackage{ifthen, pgffor}
+
 % Programmcodeumgebung
-	\usepackage{listings}
-	\lstset{language=Java}
-	% Einstellungen beim Punkt "Gestaltung des Blattes"
+\usepackage{listings}
+\lstset{language=Java}
+
+% Schöne Anführungszeichen
+\usepackage{csquotes}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %	N E U E  B E F E H L E
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-% Definition neuer Farben
-	\definecolor{myblue}{rgb}{0.13,0.13,1}
-	\definecolor{mygreen}{rgb}{0,0.5,0}
-	\definecolor{myred}{rgb}{0.9,0,0}
-	\definecolor{mygrey}{rgb}{0.46,0.45,0.48}
+% Farben
+\definecolor{myblue}{rgb}{0.13,0.13,1}
+\definecolor{mygreen}{rgb}{0,0.5,0}
+\definecolor{myred}{rgb}{0.9,0,0}
+\definecolor{mygrey}{rgb}{0.46,0.45,0.48}
 
 % Ein-/Ausblenden von Teilen des Dokuments
-	\newcommand{\enableFig}[1]{#1}
-	% entferne #1 aus {}, um Bilder in \enableFig-Umgebungen auszublenden
-	\newcommand{\enableText}[1]{#1}	% speziell für Texte
-	\newcommand{\enable}[1]{#1}	% allgemein
-	\newcommand{\kommentar}[1]{\textcolor{mygrey}{#1}}
-	
-% Definitions- und Aussagenumgebung
-	\newtheorem{thm}{Theorem}
-	\newtheorem{definition}[thm]{Definition}
-	\newtheorem{satz}[thm]{Satz}
-	\newtheorem{lem}[thm]{Lemma}
-	\newtheorem{kor}[thm]{%
-		\iflanguage{german}{Korollar}{%
-        \iflanguage{english}{Corollary}{}
-        }%
-    }
-	\newtheorem{beob}[thm]{%
-		\iflanguage{german}{Beobachtung}{%
-        \iflanguage{english}{Observation}{}
-        }%
-	}
-	\newtheorem{eig}[thm]{%
-		\iflanguage{german}{Eigenschaft}{%
-        \iflanguage{english}{Property}{}
-    	}%	
-	}
-	\newtheorem{alg}[thm]{%
-		\iflanguage{german}{Algorithmus}{%
-        \iflanguage{english}{Algorithm}{}
-    	}%	
-	}
+\newcommand{\enableFig}[1]{#1}
+\newcommand{\enableText}[1]{#1}
+\newcommand{\enable}[1]{#1}
+\newcommand{\kommentar}[1]{\textcolor{mygrey}{#1}}
 
-% Matematische Symbole
-	\newcommand{\nats}{\mathbb{N}}
-	\newcommand{\ints}{\mathbb{Z}}
-	\newcommand{\rats}{\mathbb{Q}}
-	\newcommand{\reals}{\mathbb{R}}
-	\newcommand{\cplx}{\mathbb{C}}
-	\renewcommand{\O}{\mathcal{O}}
-	
-	\renewcommand*\d{\mathop{}\!\mathrm{d}}
-	\newcommand*\D[1]{\mathop{}\!\mathrm{d^#1}}
-	
-% weitere Befehle
-	\newcommand{\TODO}{\Large\textcolor{red}{???}}
+% Theorem-Umgebungen
+\theoremstyle{definition}
+\newtheorem{definition}{Definition}[section]
+
+\theoremstyle{plain}
+\newtheorem{satz}[definition]{Satz}
+\newtheorem{thm}[definition]{Theorem}
+\newtheorem{lem}[definition]{Lemma}
+\newtheorem{kor}[definition]{Korollar}
+
+\theoremstyle{remark}
+\newtheorem{beob}[definition]{Beobachtung}
+\newtheorem{eig}[definition]{Eigenschaft}
+\newtheorem{alg}[definition]{Algorithmus}
+
+% Mathematische Symbole
+\newcommand{\nats}{\mathbb{N}}
+\newcommand{\ints}{\mathbb{Z}}
+\newcommand{\rats}{\mathbb{Q}}
+\newcommand{\reals}{\mathbb{R}}
+\newcommand{\cplx}{\mathbb{C}}
+\renewcommand{\O}{\mathcal{O}}
+
+\renewcommand*\d{\mathop{}\!\mathrm{d}}
+\newcommand*\D[1]{\mathop{}\!\mathrm{d^#1}}
+
+% TODO
+\newcommand{\TODO}{\Large\textcolor{red}{???}}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %	N E U E  U M G E B U N G E N
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 % Programmcode
-	\lstnewenvironment{code}[1][]{\lstset{#1,
+\lstnewenvironment{code}[1][]{
+	\lstset{#1,
 		backgroundcolor=\color{gray!20},
 		inputencoding=utf8,
 		extendedchars=true,
 		literate={ä}{{\"a}}1 {Ä}{{\"A}}1 {ö}{{\"o}}1 {Ö}{{\"O}}1 {ü}{{\"u}}1 {Ü}{{\"U}}1 {ß}{{\ss}}1 {°}{{\textdegree}}{1} {\%}{\%}{1}
-%		frame=single,                     % Rahmen um den Code
-%    	rulecolor=\color{black},          % Rahmenfarbe (optional)
-%	    framerule=0.5pt,                   % Rahmenstärke
-%	    xleftmargin=0pt,                  % Linker Rand (optional)
-%	    xrightmargin=0pt,                 % Rechter Rand (optional)
-%	    aboveskip=10pt,                   % Abstand oberhalb
-%	    belowskip=10pt 
 	}
-	}{}
-
+}{}
