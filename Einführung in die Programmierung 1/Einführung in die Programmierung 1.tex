@@ -98,4 +98,69 @@ Die Kommazahl mal zwei nehmen und sobald 1, da steht wird der Rest genommen und 
 
 \[(0,1)_{10} = (0,00011\overline{0011})_{2}\]
 
+\section{Vorlesung 2}
+\subsection{Grammatik}
+Kleinste teile werden Token oder Terminae genannt.
+\subsubsection{Tokentypen}
+\begin{enumerate}
+\item Schlüsselworte\\class, public, static (vordefiniert in der Programmiersprache)
+\item Literale\\"Werte" (Zeichenfolgen, die Werte definieren), also 1, 5, "Hallo"...
+\item Bezeichner\\Klassen, Funktionen, Methoden, Variablen: var1, var2...\\Müssen mit einem Unicode Buchstaben anfangen. Nicht mit ner Zahl anfangen, Unterstrich sollte nicht mehr genutzt werden. Lieber camelCase.
+\item Seperatoren\\Klammern, geschwiefte Klammern, alles, was "separiert" lul
+\item Operatoren\\+,-,*,/,<<,>>,<,>,<=,>=,==,\%...
+\end{enumerate}
+
+\subsubsection{Kommentare}
+\begin{enumerate}
+\item Backslash // ein Kommmentar
+\item Commentblock /* kommentarblock*/
+\item Java todo parsed block /** parsed comment block**/
+\end{enumerate}
+
+\subsubsection{Methoden}
+EIne Methode besteht aus dem Methodenkopf, z.B. public static void main(String[] args){}\\public static kommt später, void = nichts, main darf nicht geändert werden, da der Interpreter/compiler den Namen main braucht.\\\\Jedes Java Programm enthält mindestens eine Klasse. Jedes Java Programm besitzt exakt eine main methode.\\\\Ein minimales Java Programm:\\
+\hspace*{0cm}\hfill
+\begin{minipage}[l]{.8\linewidth}
+\begin{code}
+class Minimal{
+	public static void main(String[] args){
+	}
+}
+\end{code}
+\end{minipage}
+
+\subsubsection{Variablen}
+Eine Variabke hat einen eindeutigen Typ, einen deindeutigen Speicherort im Hauptspeicher, einen Namen\\\\Variablen müssen erst deklariert werden, also bevor man x++ macht, muss man\\\\ int x;\\int x=0;\\\\deklarieren.\\\\ Normale Variablen haben r/w zugriff. Java Äquivalent zu const ist final.\\Eine final variable muss bei der Initialisierung mit einem Wert versehen werden.
+
+\subsubsection{Elementare Ein- und Ausgabe}
+System.out.print(ln)(String);\\System.out.print(ln)(int var);\\Eingaben brauchen die Klasse Scanner:\\
+\hspace*{0cm}\hfill
+\begin{minipage}[l]{.8\linewidth}
+\begin{code}
+import java.util.Scanner;
+
+public class Minimal{
+	public static void main(String[] args){
+		System.out.println("Ein");
+		System.out.println("Satz, der \
+		newline terminated ist");
+		
+		Scanner sc = new Scanner(System.in);
+		String zeichenfolge = sc.next();
+		// scannt bis zum nächsten Leerzeichen
+		
+		System.out.println(zeichenfolge);
+		int zahl = sc.nextInt();
+		// scannt Zahl, kann auch nextDouble,
+		// nextFloat... sein
+		
+		System.out.print("Eingegebene Zahl: ")
+		System.out.println(zahl);
+		sc.close();
+	}
+}
+\end{code}
+\end{minipage}
+\\\\import java.util.Scanner;\\Scanner sc = new Scanner(System.in);\\Zeichenfolge bis newline einscannen: String zeichenfolge = sc.next();\\Zahlen einscannen: int zahl = sc.nextInt();
+
 \end{document}
